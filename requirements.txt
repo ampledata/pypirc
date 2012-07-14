@@ -1,0 +1,4 @@
+mock
+nose
+pylint
+pep8

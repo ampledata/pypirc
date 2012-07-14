@@ -1,0 +1,9 @@
+*.py[oc]
+*.egg/
+*.egg-info/
+build/
+dist/
+RELEASE-VERSION.txt
+cover/
+.coverage
+nosetests.xml
