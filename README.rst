@@ -23,7 +23,7 @@ Add a pypi server::
 
 Source
 ======
-https://github.com/ampledata/mypypi
+https://github.com/ampledata/pypirc
 
 Author
 ======
