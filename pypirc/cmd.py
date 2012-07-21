@@ -27,22 +27,29 @@ def main():
     options, _ = parser.parse_args()
 
     myrc = pypirc.PyPiRC()
-    if (options.server and options.repository and options.username
-            and options.password):
-        new_server = {
-            options.server: {
-                'repository': options.repository,
-                'username': options.username,
-                'password': options.password
-            }
-        }
-        myrc.servers = new_server
-        myrc.save()
-    else:
+    if options.server:
         if myrc.servers:
-            pprint.pprint(myrc.servers)
+            # we're updating
+            server = myrc.servers[options.server]
         else:
-            print 'Empty!'
+            server = {}
+
+        if options.repository:
+            server['repository'] = options.repository
+
+        if options.username:
+            server['username'] = options.username
+
+        if options.password:
+            server['password'] = options.password
+
+        myrc.servers[options.server] = server
+        myrc.save()
+
+    if myrc.servers:
+        pprint.pprint(myrc.servers)
+    else:
+        print '.pypirc Empty!'
 
 
 if __name__ == '__main__':
