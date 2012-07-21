@@ -81,6 +81,22 @@ class TestPyPiRC(unittest.TestCase):
         cur_rc2 = pypirc.PyPiRC(rc_file)
         self.assertTrue(cur_rc2.servers == self.rand_server)
 
+    def test_update(self):
+        """Tests updating existing pypirc."""
+        rc_file = self.tmpf('.cfg', 'test_update_')[1]
+        cur_rc = pypirc.PyPiRC(rc_file)
+        cur_rc.servers = self.rand_server
+        self.assertTrue(cur_rc.servers == self.rand_server)
+        cur_rc.save()
+        cur_rc2 = pypirc.PyPiRC(rc_file)
+
+        updated_server = cur_rc2.servers[self.rands]
+        updated_server.update({
+            'repository': updated_server['repository'] + '/update'})
+        cur_rc2.servers[self.rands] = updated_server
+
+        self.assertTrue(cur_rc2.servers[self.rands] == updated_server)
+
     def tearDown(self):
         if os.path.exists(self.rc_file):
             os.remove(self.rc_file)
