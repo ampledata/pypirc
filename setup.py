@@ -25,7 +25,7 @@ setuptools.setup(
     license='Apache License 2.0',
     packages=setuptools.find_packages(exclude=('tests', 'docs')),
     setup_requires=['nose'],
-    tests_require=['mock', 'coverage'],
+    tests_require=['nose', 'mock', 'coverage'],
     test_suite='tests',
     entry_points={'console_scripts': ['pypirc = pypirc.cmd:main']}
 )

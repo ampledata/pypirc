@@ -2,3 +2,6 @@ mock
 nose
 pylint
 pep8
+flake8
+coverage
+clonedigger
