@@ -30,7 +30,7 @@ def main():
     if options.server:
         if myrc.servers:
             # we're updating
-            server = myrc.servers[options.server]
+            server = myrc.servers.get(options.server, {})
         else:
             server = {}
 
