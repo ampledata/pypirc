@@ -16,7 +16,7 @@ def read_readme():
 
 setuptools.setup(
     name='pypirc',
-    version='1.0.3',
+    version='1.0.4',
     description='PyPiRC: .pypirc Manager',
     long_description=read_readme(),
     author='Greg Albrecht',
@@ -25,7 +25,7 @@ setuptools.setup(
     license='Apache License 2.0',
     packages=setuptools.find_packages(exclude=('tests', 'docs')),
     setup_requires=['nose'],
-    tests_require=['mock', 'coverage'],
+    tests_require=['nose', 'mock', 'coverage'],
     test_suite='tests',
     entry_points={'console_scripts': ['pypirc = pypirc.cmd:main']}
 )
